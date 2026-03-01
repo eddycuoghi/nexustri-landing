@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cookie Policy — NexusTri</title>
+
+  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{--bg:#070708;--bg2:#0b0b0d;--text:#f2f2f2;--muted:rgba(242,242,242,0.68);--gold:#C9A33A;--line:rgba(255,255,255,0.08);--radius:18px;--max:980px}
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:linear-gradient(180deg,var(--bg),var(--bg2));color:var(--text);line-height:1.7}
+    a{color:inherit}
+    .wrap{max-width:var(--max);margin:0 auto;padding:0 22px}
+    .top{padding:34px 0;border-bottom:1px solid var(--line)}
+    .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+    .brand img{width:28px;height:28px}
+    .brand b{letter-spacing:.4px}
+    .brand b span{color:var(--gold)}
+    main{padding:42px 0 70px}
+    h1{font-size:34px;letter-spacing:-.6px;margin-bottom:10px}
+    .meta{color:var(--muted);font-size:13px;margin-bottom:26px}
+    h2{font-size:18px;margin-top:26px;margin-bottom:10px}
+    p,li{color:rgba(242,242,242,0.78);font-size:14px}
+    ul{padding-left:18px;margin-top:8px}
+    .card{border:1px solid var(--line);border-radius:var(--radius);padding:18px;background:rgba(255,255,255,0.02);margin-top:18px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 14px;border-radius:999px;border:1px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.04);color:var(--text);cursor:pointer}
+    .btn:hover{background:rgba(255,255,255,0.06)}
+    footer{border-top:1px solid var(--line);padding:28px 0;color:rgba(242,242,242,0.55);font-size:12px}
+    .links{display:flex;gap:14px;flex-wrap:wrap;margin-top:10px}
+  </style>
+</head>
+<body>
+
+  <div class="top">
+    <div class="wrap">
+      <a class="brand" href="index.html" aria-label="Back to NexusTri">
+        <img src="mark.png" alt="NexusTri mark">
+        <b>Nexus<span>Tri</span></b>
+      </a>
+    </div>
+  </div>
+
+  <main class="wrap">
+    <h1>Cookie Policy</h1>
+    <div class="meta">Last updated: <span id="d"></span></div>
+
+    <p>
+      This website uses cookies and similar technologies. Some are strictly necessary to provide basic functionality.
+      Analytics cookies are optional and are only used after you consent.
+    </p>
+
+    <h2>1) What are cookies?</h2>
+    <p>
+      Cookies are small text files stored on your device. They help websites work properly and can also help measure
+      how the site is used.
+    </p>
+
+    <h2>2) Cookie categories used</h2>
+
+    <div class="card">
+      <p><b>Necessary cookies</b> (always on)</p>
+      <ul>
+        <li>Used to store your cookie preferences and ensure basic website operation.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <p><b>Analytics cookies</b> (optional)</p>
+      <ul>
+        <li>Used to understand site usage in aggregated form (e.g., pages viewed, approximate location, device type).</li>
+        <li>Enabled only after consent via the banner or Cookie Settings.</li>
+      </ul>
+    </div>
+
+    <h2>3) Manage your preferences</h2>
+    <p>
+      You can change your cookie preferences at any time from the homepage footer via “Cookie Settings”.
+    </p>
+
+    <p style="margin-top:14px;">
+      <button class="btn" onclick="goHome()">Go to homepage (Cookie Settings)</button>
+    </p>
+
+    <h2>4) Contact</h2>
+    <p>
+      For questions, contact: <a href="mailto:support@nexustri.com">support@nexustri.com</a>
+    </p>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      © <span id="y"></span> NexusTri
+      <div class="links">
+        <a href="index.html">Home</a>
+        <a href="privacy.html">Privacy Policy</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+    document.getElementById('d').textContent = new Date().toISOString().slice(0,10);
+    function goHome(){ window.location.href = "index.html#contact"; }
+  </script>
+</body>
+</html>

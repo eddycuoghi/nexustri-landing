@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>NexusTri — Digital Product Holding</title>
+  <meta name="description" content="NexusTri builds, acquires and scales profitable digital products globally. One ecosystem — multiple products." />
+
+  <!-- CANONICAL -->
+  <link rel="canonical" href="https://nexustri.com/" />
+
+  <!-- OPEN GRAPH -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://nexustri.com/" />
+  <meta property="og:title" content="NexusTri — Digital Product Holding" />
+  <meta property="og:description" content="NexusTri builds, acquires and scales profitable digital products globally. One ecosystem — multiple products." />
+  <meta property="og:image" content="https://nexustri.com/mark.png" />
+
+  <!-- TWITTER CARD -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:url" content="https://nexustri.com/" />
+  <meta name="twitter:title" content="NexusTri — Digital Product Holding" />
+  <meta name="twitter:description" content="NexusTri builds, acquires and scales profitable digital products globally." />
+  <meta name="twitter:image" content="https://nexustri.com/mark.png" />
+
+  <!-- SCHEMA.ORG -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "NexusTri",
+    "url": "https://nexustri.com",
+    "logo": "https://nexustri.com/mark.png",
+    "description": "NexusTri builds, acquires and scales profitable digital products globally.",
+    "email": "support@nexustri.com",
+    "areaServed": "Worldwide"
+  }
+  </script>
+
+  <!-- FAVICON -->
+  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#070708;
+      --bg2:#0b0b0d;
+      --text:#f2f2f2;
+      --muted:rgba(242,242,242,0.68);
+      --muted2:rgba(242,242,242,0.52);
+      --line:rgba(255,255,255,0.09);
+      --gold:#C9A33A;
+      --shadow: 0 18px 55px rgba(0,0,0,0.55);
+      --radius:18px;
+      --max:1180px;
+    }
+
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:
+        radial-gradient(900px 520px at 45% -220px, rgba(201,163,58,0.11), transparent 60%),
+        radial-gradient(760px 420px at 10% 10%, rgba(255,255,255,0.05), transparent 55%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
+      color:var(--text);
+      line-height:1.6;
+      overflow-x:hidden;
+    }
+
+    /* subtle noise */
+    body:before{
+      content:"";
+      position:fixed; inset:0;
+      pointer-events:none;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='260' height='260' filter='url(%23n)' opacity='.12'/%3E%3C/svg%3E");
+      mix-blend-mode:overlay;
+      opacity:.10;
+    }
+
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 28px}
+
+    /* NAV */
+    .nav{
+      position:fixed; top:0; left:0; right:0;
+      z-index:1000;
+      background:rgba(7,7,8,0.62);
+      backdrop-filter: blur(10px);
+      border-bottom:1px solid rgba(255,255,255,0.06);
+    }
+    .nav-inner{
+      height:78px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      text-decoration:none;
+      min-width:170px;
+    }
+    .brand-mark{
+      width:58px; height:58px;
+      border-radius:18px;
+      display:grid; place-items:center;
+      border:1px solid rgba(201,163,58,0.30);
+      background: rgba(201,163,58,0.06);
+      overflow:hidden;
+    }
+    .brand-mark img{width:44px;height:44px;display:block}
+    .brand-name{
+      font-weight:600;
+      letter-spacing:-0.02em;
+      font-size:28px;
+    }
+    .brand-name span{color:var(--gold)}
+    .links{
+      display:flex; align-items:center; gap:18px;
+      font-size:13px;
+      color:var(--muted);
+    }
+    .links a{
+      text-decoration:none;
+      padding:8px 10px;
+      border-radius:10px;
+    }
+    .links a:hover{ color:var(--text); background:rgba(255,255,255,0.04); }
+
+    .cta-nav{
+      border:1px solid rgba(201,163,58,0.35);
+      color:var(--gold) !important;
+    }
+    .cta-nav:hover{
+      background:rgba(201,163,58,0.10) !important;
+    }
+
+    /* HERO */
+    .hero{
+      padding-top:118px;
+      padding-bottom:56px;
+      min-height:92vh;
+      display:flex;
+      align-items:center;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap:46px;
+      align-items:center;
+      width:100%;
+    }
+    .kicker{
+      color:var(--muted);
+      font-size:13px;
+      letter-spacing:1.8px;
+      text-transform:uppercase;
+      margin-bottom:14px;
+    }
+    h1{
+      font-size: clamp(42px, 5.4vw, 72px);
+      letter-spacing:-1.2px;
+      line-height:1.06;
+      font-weight:600;
+    }
+    .gold{ color:var(--gold); }
+
+    .sub{
+      margin-top:18px;
+      font-size: clamp(16px, 1.35vw, 20px);
+      color:var(--muted);
+      max-width:56ch;
+    }
+
+    .hero-actions{
+      margin-top:34px;
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:12px 18px;
+      border-radius:999px;
+      font-size:13px;
+      text-decoration:none;
+      border:1px solid rgba(255,255,255,0.10);
+      background:rgba(255,255,255,0.04);
+      color:var(--text);
+      transition: transform .18s ease, background .18s ease, border-color .18s ease;
+      cursor:pointer;
+    }
+    .btn:hover{ transform: translateY(-1px); background:rgba(255,255,255,0.06); border-color:rgba(255,255,255,0.14); }
+
+    .btn-gold{
+      border-color: rgba(201,163,58,0.45);
+      background: linear-gradient(180deg, rgba(201,163,58,0.18), rgba(201,163,58,0.06));
+      color: var(--gold);
+    }
+    .btn-gold:hover{
+      background: linear-gradient(180deg, rgba(201,163,58,0.22), rgba(201,163,58,0.08));
+      border-color: rgba(201,163,58,0.62);
+    }
+
+    /* HERO PANEL */
+    .hero-panel{
+      border-radius:var(--radius);
+      border:1px solid rgba(201,163,58,0.18);
+      background:
+        radial-gradient(520px 260px at 30% 0%, rgba(201,163,58,0.10), transparent 62%),
+        radial-gradient(650px 320px at 90% 20%, rgba(255,255,255,0.05), transparent 68%),
+        rgba(255,255,255,0.02);
+      box-shadow: var(--shadow);
+      padding:54px 40px;
+      text-align:center;
+      transition: transform .35s ease;
+    }
+    .hero-panel:hover{ transform: translateY(-3px); }
+    .seal{
+      width:250px;
+      height:auto;
+      margin:0 auto 18px;
+      display:block;
+      filter: drop-shadow(0 30px 44px rgba(0,0,0,0.68));
+    }
+    .panel-title{
+      font-weight:600;
+      letter-spacing:0.4px;
+      font-size:16px;
+    }
+    .panel-sub{
+      margin-top:8px;
+      color:var(--muted2);
+      font-size:13px;
+    }
+    .mini-stats{
+      margin-top:22px;
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:10px;
+    }
+    .stat{
+      border:1px solid rgba(255,255,255,0.08);
+      background:rgba(255,255,255,0.02);
+      border-radius:14px;
+      padding:14px 12px;
+      text-align:center;
+    }
+    .stat b{display:block;color:var(--gold);font-size:13px;letter-spacing:0.3px;}
+    .stat span{display:block;margin-top:6px;color:var(--muted2);font-size:12px;}
+
+    /* SECTIONS */
+    section{padding:92px 0 60px}
+    .section-head{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:18px;
+      margin-bottom:26px;
+    }
+    h2{
+      font-size:28px;
+      letter-spacing:-0.4px;
+      font-weight:600;
+    }
+    .section-desc{color:var(--muted);font-size:14px;max-width:64ch;}
+
+    /* CARDS */
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap:16px;
+    }
+    .card{
+      grid-column: span 4;
+      border-radius:var(--radius);
+      border:1px solid rgba(255,255,255,0.08);
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+      padding:22px;
+      transition: transform .18s ease, border-color .18s ease, background .18s ease;
+    }
+    .card:hover{
+      transform: translateY(-3px);
+      border-color: rgba(201,163,58,0.22);
+      background: linear-gradient(180deg, rgba(201,163,58,0.06), rgba(255,255,255,0.02));
+    }
+    .tag{
+      display:inline-flex;
+      font-size:11px;
+      letter-spacing:1.2px;
+      text-transform:uppercase;
+      color: rgba(201,163,58,0.88);
+      margin-bottom:12px;
+    }
+    .tag-live{
+      display:inline-flex;
+      font-size:11px;
+      letter-spacing:1.2px;
+      text-transform:uppercase;
+      color: rgba(34,197,94,0.90);
+      margin-bottom:12px;
+      margin-left:8px;
+    }
+    .tag-live:before{
+      content:"●";
+      margin-right:4px;
+      font-size:9px;
+    }
+    .card h3{font-size:18px;font-weight:600;margin-bottom:8px;}
+    .card p{color:var(--muted);font-size:13px;margin-bottom:14px;max-width:50ch;}
+    .card a{
+      font-size:13px;
+      color:rgba(242,242,242,0.86);
+      border-bottom:1px solid rgba(255,255,255,0.12);
+      padding-bottom:2px;
+      text-decoration:none;
+    }
+    .card a:hover{ border-bottom-color: rgba(201,163,58,0.35); color:var(--text); }
+
+    /* PHILOSOPHY */
+    .philo{
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:var(--radius);
+      padding:34px;
+      background: rgba(255,255,255,0.02);
+      position:relative;
+      overflow:hidden;
+    }
+    .philo:before{
+      content:"";
+      position:absolute; inset:-2px;
+      background: radial-gradient(640px 260px at 30% 10%, rgba(201,163,58,0.11), transparent 62%);
+      opacity:0.9;
+      pointer-events:none;
+    }
+    .philo p{position:relative;font-size:18px;color:rgba(242,242,242,0.78);max-width:80ch;}
+    .philo b{color:var(--gold);font-weight:600;}
+
+    /* FOOTER */
+    footer{
+      padding:46px 0 60px;
+      border-top:1px solid rgba(255,255,255,0.06);
+      color:rgba(242,242,242,0.55);
+      font-size:12px;
+    }
+    .footer-row{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:22px;
+      flex-wrap:wrap;
+    }
+    .footer-links{
+      display:flex;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+    .footer-links a{
+      color:rgba(242,242,242,0.65);
+      border-bottom:1px solid rgba(255,255,255,0.14);
+      padding-bottom:2px;
+      text-decoration:none;
+    }
+    .footer-links a:hover{
+      color:var(--text);
+      border-bottom-color:rgba(201,163,58,0.35);
+    }
+    .disclaimer{
+      margin-top:18px;
+      color:rgba(242,242,242,0.45);
+      max-width:92ch;
+    }
+
+    /* REVEAL */
+    .reveal{ opacity:0; transform: translateY(10px); }
+    .reveal.on{ opacity:1; transform: translateY(0); transition: opacity .6s ease, transform .6s ease; }
+
+    /* COOKIE MODAL */
+    .cookie-backdrop{
+      position:fixed; inset:0;
+      background:rgba(0,0,0,0.55);
+      display:none;
+      z-index:3000;
+    }
+    .cookie-modal{
+      position:fixed;
+      left:50%;
+      bottom:22px;
+      transform:translateX(-50%);
+      width:min(860px, calc(100% - 28px));
+      background:rgba(14,14,16,0.92);
+      backdrop-filter: blur(10px);
+      border:1px solid rgba(255,255,255,0.10);
+      border-radius:20px;
+      box-shadow: 0 28px 80px rgba(0,0,0,0.70);
+      padding:18px 18px 16px;
+      display:none;
+      z-index:3001;
+    }
+    .cookie-title{font-weight:600;letter-spacing:0.2px;}
+    .cookie-text{color:rgba(242,242,242,0.62);font-size:13px;margin-top:6px;max-width:78ch;}
+    .cookie-actions{
+      display:flex; gap:10px; flex-wrap:wrap; align-items:center;
+      margin-top:14px; justify-content:flex-end;
+    }
+    .cookie-btn{
+      padding:10px 14px;
+      border-radius:999px;
+      font-size:13px;
+      border:1px solid rgba(255,255,255,0.12);
+      background:rgba(255,255,255,0.04);
+      color:var(--text);
+      cursor:pointer;
+    }
+    .cookie-btn:hover{ background:rgba(255,255,255,0.06); border-color:rgba(255,255,255,0.16); }
+    .cookie-btn-gold{
+      border-color: rgba(201,163,58,0.45);
+      background: linear-gradient(180deg, rgba(201,163,58,0.20), rgba(201,163,58,0.06));
+      color: var(--gold);
+    }
+    .cookie-btn-gold:hover{
+      border-color: rgba(201,163,58,0.65);
+      background: linear-gradient(180deg, rgba(201,163,58,0.26), rgba(201,163,58,0.08));
+    }
+    .cookie-prefs{
+      display:none;
+      margin-top:14px;
+      border-top:1px solid rgba(255,255,255,0.08);
+      padding-top:14px;
+    }
+    .pref{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:14px;
+      padding:12px 12px;
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:14px;
+      background:rgba(255,255,255,0.02);
+      margin-top:10px;
+    }
+    .pref h4{font-size:13px;font-weight:600;margin-bottom:4px;}
+    .pref p{font-size:12px;color:rgba(242,242,242,0.58);max-width:64ch;}
+
+    .switch{position:relative;width:46px;height:26px;flex:0 0 auto;}
+    .switch input{display:none}
+    .slider{
+      position:absolute; inset:0;
+      background:rgba(255,255,255,0.12);
+      border:1px solid rgba(255,255,255,0.14);
+      border-radius:999px;
+      cursor:pointer;
+      transition:.2s ease;
+    }
+    .slider:before{
+      content:"";
+      position:absolute;
+      height:20px;width:20px;
+      left:3px; top:2px;
+      border-radius:50%;
+      background:rgba(255,255,255,0.75);
+      transition:.2s ease;
+    }
+    .switch input:checked + .slider{
+      background:rgba(201,163,58,0.22);
+      border-color: rgba(201,163,58,0.35);
+    }
+    .switch input:checked + .slider:before{
+      transform: translateX(20px);
+      background:rgba(201,163,58,0.95);
+    }
+    .switch input:disabled + .slider{opacity:.55; cursor:not-allowed;}
+
+    @media (max-width: 980px){
+      .hero-grid{ grid-template-columns: 1fr; }
+      .hero{ min-height:auto; padding-top:112px; }
+      .card{ grid-column: span 6; }
+      .links{ display:none; }
+      .hero-panel{ padding:44px 28px; }
+      .seal{ width:240px; }
+    }
+    @media (max-width: 640px){
+      .nav-inner{ height:72px; }
+      .brand-name{ display:none; }
+      .mini-stats{ grid-template-columns:1fr; }
+      .card{ grid-column: span 12; }
+      section{ padding:76px 0; }
+      .seal{ width:220px; }
+      .cookie-modal{ bottom:14px; }
+      .cookie-actions{ justify-content:flex-start; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top" aria-label="NexusTri">
+        <span class="brand-mark">
+          <img src="mark.png" alt="NexusTri mark">
+        </span>
+        <span class="brand-name">Nexus<span>Tri</span></span>
+      </a>
+
+      <div class="links">
+        <a href="#portfolio">Portfolio</a>
+        <a href="#philosophy">Philosophy</a>
+        <a href="#contact" class="cta-nav">Contact</a>
+      </div>
+    </div>
+  </div>
+
+  <main id="top" class="wrap hero">
+    <div class="hero-grid">
+      <div>
+        <div class="kicker reveal">Digital Product Holding</div>
+
+        <h1 class="reveal">
+          Nexus<span class="gold">Tri</span> builds, acquires<br/>
+          and scales <span class="gold">profitable</span> digital products.
+        </h1>
+
+        <p class="sub reveal">
+          A quiet, long-term holding focused on automation, distribution and global markets.
+          One ecosystem — multiple products.
+        </p>
+
+        <div class="hero-actions reveal">
+          <a class="btn btn-gold" href="#portfolio">Explore ecosystem</a>
+          <a class="btn" href="#philosophy">How we think</a>
+        </div>
+      </div>
+
+      <aside class="hero-panel reveal" aria-label="NexusTri Symbol">
+        <img class="seal" src="mark.png" alt="NexusTri symbol">
+        <div class="panel-title">NexusTri Holding</div>
+        <div class="panel-sub">Focused on scalable digital assets.</div>
+
+        <div class="mini-stats" role="list">
+          <div class="stat" role="listitem"><b>1 Live</b><span>Product</span></div>
+          <div class="stat" role="listitem"><b>Scale</b><span>Distribution first</span></div>
+          <div class="stat" role="listitem"><b>Acquire</b><span>Selective assets</span></div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <section id="portfolio" class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <h2>Portfolio</h2>
+        <div class="section-desc">
+          A focused ecosystem of tools. Each product is built to be standalone — and stronger together.
+        </div>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="card reveal">
+        <div>
+          <span class="tag">Product</span><span class="tag-live">Live</span>
+        </div>
+        <h3>NameProof</h3>
+        <p>Brand name validation: domains, pronunciation across 8 languages, social handles, and trademark risk across USPTO, EUIPO & WIPO.</p>
+        <a href="https://nameproof.io" target="_blank" rel="noopener">Visit nameproof.io</a>
+      </div>
+
+      <div class="card reveal">
+        <div class="tag">Product</div>
+        <h3>MarginGuides</h3>
+        <p>Pricing intelligence and margin optimization tools.</p>
+        <a href="#" onclick="return false;">Soon</a>
+      </div>
+
+      <div class="card reveal">
+        <div class="tag">Product</div>
+        <h3>InstantRegulation</h3>
+        <p>Regulatory and compliance automation solutions.</p>
+        <a href="#" onclick="return false;">Soon</a>
+      </div>
+
+      <div class="card reveal">
+        <div class="tag">Division</div>
+        <h3>Studio</h3>
+        <p>Rapid prototyping, automation workflows, and AI infrastructure.</p>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <div class="card reveal">
+        <div class="tag">Strategy</div>
+        <h3>Distribution</h3>
+        <p>SEO, content systems, performance loops and growth engineering.</p>
+        <a href="#philosophy">Learn</a>
+      </div>
+
+      <div class="card reveal">
+        <div class="tag">Future</div>
+        <h3>Acquisitions</h3>
+        <p>Selective acquisitions of digital assets with global upside.</p>
+        <a href="#contact">Talk</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="philosophy" class="wrap" style="padding-top:120px;">
+    <div class="section-head reveal">
+      <div>
+        <h2>Philosophy</h2>
+        <div class="section-desc">Short. Direct. Serious.</div>
+      </div>
+    </div>
+
+    <div class="philo reveal" id="contact">
+      <p>
+        We focus on <b>profitability</b>, systems, and long-term value.
+        Products are designed to be <b>simple to sell</b>, fast to iterate, and scalable worldwide —
+        with automation as a default.
+      </p>
+
+      <div style="margin-top:22px; display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap;">
+        <div style="color:rgba(242,242,242,0.55); font-size:13px;">Europe · Global</div>
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <a class="btn btn-gold" href="mailto:support@nexustri.com">support@nexustri.com</a>
+          <a class="btn" href="https://x.com/Nexustri_com" target="_blank" rel="noopener">&#120143; @Nexustri_com</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div class="footer-row">
+        <div>© <span id="y"></span> NexusTri — Digital Product Holding</div>
+        <div class="footer-links">
+          <a href="/privacy.html">Privacy Policy</a>
+          <a href="/cookies.html">Cookie Policy</a>
+          <a href="#" id="cookieSettingsLink">Cookie Settings</a>
+          <a href="https://x.com/Nexustri_com" target="_blank" rel="noopener">&#120143;</a>
+        </div>
+      </div>
+
+      <div class="disclaimer">
+        <b>Disclaimer:</b> The information on this website is provided for general informational purposes only and does not constitute legal, financial, or investment advice.
+        Third-party trademarks and brand names remain the property of their respective owners.
+      </div>
+    </div>
+  </footer>
+
+  <!-- COOKIE CONSENT -->
+  <div class="cookie-backdrop" id="cookieBackdrop"></div>
+
+  <div class="cookie-modal" id="cookieModal" role="dialog" aria-modal="true" aria-label="Cookie preferences">
+    <div class="cookie-title">Cookies & Privacy</div>
+    <div class="cookie-text">
+      This website uses necessary cookies to function. With your consent, it may also use analytics cookies to understand usage and improve the experience.
+      You can change your preferences at any time from "Cookie Settings".
+    </div>
+
+    <div class="cookie-actions">
+      <button class="cookie-btn" id="btnReject">Reject non-essential</button>
+      <button class="cookie-btn" id="btnPrefs">Preferences</button>
+      <button class="cookie-btn cookie-btn-gold" id="btnAcceptAll">Accept all</button>
+    </div>
+
+    <div class="cookie-prefs" id="cookiePrefs">
+      <div class="pref">
+        <div>
+          <h4>Necessary cookies</h4>
+          <p>Required for basic site functionality and storing your preferences. Always active.</p>
+        </div>
+        <label class="switch" title="Always on">
+          <input type="checkbox" checked disabled>
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div class="pref">
+        <div>
+          <h4>Analytics cookies</h4>
+          <p>Help understand how the site is used (aggregated). Loaded only after consent.</p>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="toggleAnalytics">
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div class="cookie-actions" style="justify-content:flex-end; margin-top:12px;">
+        <button class="cookie-btn" id="btnSavePrefs">Save preferences</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // YEAR
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // REVEAL
+    const els = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting) e.target.classList.add('on');
+      });
+    },{threshold:0.14});
+    els.forEach(el=>io.observe(el));
+
+    // COOKIE CONSENT (stored)
+    const CONSENT_KEY = "nxtr_cookie_consent_v1";
+    const CONSENT_VERSION = 1;
+
+    const modal = document.getElementById("cookieModal");
+    const backdrop = document.getElementById("cookieBackdrop");
+    const prefs = document.getElementById("cookiePrefs");
+    const toggleAnalytics = document.getElementById("toggleAnalytics");
+
+    const btnReject = document.getElementById("btnReject");
+    const btnPrefs = document.getElementById("btnPrefs");
+    const btnAcceptAll = document.getElementById("btnAcceptAll");
+    const btnSavePrefs = document.getElementById("btnSavePrefs");
+    const cookieSettingsLink = document.getElementById("cookieSettingsLink");
+
+    function openCookieModal(showPrefs=false){
+      backdrop.style.display = "block";
+      modal.style.display = "block";
+      prefs.style.display = showPrefs ? "block" : "none";
+    }
+    function closeCookieModal(){
+      backdrop.style.display = "none";
+      modal.style.display = "none";
+      prefs.style.display = "none";
+    }
+
+    function getConsent(){
+      try{
+        const raw = localStorage.getItem(CONSENT_KEY);
+        if(!raw) return null;
+        const obj = JSON.parse(raw);
+        if(!obj || obj.version !== CONSENT_VERSION) return null;
+        return obj;
+      }catch(e){ return null; }
+    }
+
+    function setConsent(analytics){
+      const obj = {
+        version: CONSENT_VERSION,
+        necessary: true,
+        analytics: !!analytics,
+        timestamp: Date.now()
+      };
+      localStorage.setItem(CONSENT_KEY, JSON.stringify(obj));
+      return obj;
+    }
+
+    // GA4 — add your Measurement ID when ready
+    const GA_MEASUREMENT_ID = "G-6Z7B0WJP2W";
+
+    function loadGA4(){
+      if(window.__ga4_loaded) return;
+      if(!GA_MEASUREMENT_ID || GA_MEASUREMENT_ID === "G-XXXXXXXXXX") return;
+      window.__ga4_loaded = true;
+      const s = document.createElement("script");
+      s.async = true;
+      s.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(GA_MEASUREMENT_ID);
+      document.head.appendChild(s);
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){ dataLayer.push(arguments); }
+      window.gtag = window.gtag || gtag;
+      gtag('js', new Date());
+      gtag('consent', 'update', { analytics_storage: 'granted' });
+      gtag('config', GA_MEASUREMENT_ID, { anonymize_ip: true });
+    }
+
+    function applyConsent(consent){
+      if(consent && consent.analytics) loadGA4();
+    }
+
+    btnAcceptAll.addEventListener("click", ()=>{ const c = setConsent(true); applyConsent(c); closeCookieModal(); });
+    btnReject.addEventListener("click", ()=>{ const c = setConsent(false); applyConsent(c); closeCookieModal(); });
+    btnPrefs.addEventListener("click", ()=>{
+      prefs.style.display = (prefs.style.display === "block") ? "none" : "block";
+      const c = getConsent();
+      toggleAnalytics.checked = c ? !!c.analytics : false;
+    });
+    btnSavePrefs.addEventListener("click", ()=>{ const c = setConsent(toggleAnalytics.checked); applyConsent(c); closeCookieModal(); });
+    cookieSettingsLink.addEventListener("click", (e)=>{
+      e.preventDefault();
+      const c = getConsent();
+      toggleAnalytics.checked = c ? !!c.analytics : false;
+      openCookieModal(true);
+    });
+    backdrop.addEventListener("click", ()=>{ const c = getConsent(); if(c) closeCookieModal(); });
+
+    const existing = getConsent();
+    if(!existing){ openCookieModal(false); } else { applyConsent(existing); }
+  </script>
+
+</body>
+</html>

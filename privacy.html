@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — NexusTri</title>
+
+  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{--bg:#070708;--bg2:#0b0b0d;--text:#f2f2f2;--muted:rgba(242,242,242,0.68);--gold:#C9A33A;--line:rgba(255,255,255,0.08);--radius:18px;--max:980px}
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:linear-gradient(180deg,var(--bg),var(--bg2));color:var(--text);line-height:1.7}
+    a{color:inherit}
+    .wrap{max-width:var(--max);margin:0 auto;padding:0 22px}
+    .top{padding:34px 0;border-bottom:1px solid var(--line)}
+    .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+    .brand img{width:28px;height:28px}
+    .brand b{letter-spacing:.4px}
+    .brand b span{color:var(--gold)}
+    main{padding:42px 0 70px}
+    h1{font-size:34px;letter-spacing:-.6px;margin-bottom:10px}
+    .meta{color:var(--muted);font-size:13px;margin-bottom:26px}
+    h2{font-size:18px;margin-top:26px;margin-bottom:10px}
+    p,li{color:rgba(242,242,242,0.78);font-size:14px}
+    ul{padding-left:18px;margin-top:8px}
+    .card{border:1px solid var(--line);border-radius:var(--radius);padding:18px;background:rgba(255,255,255,0.02);margin-top:18px}
+    footer{border-top:1px solid var(--line);padding:28px 0;color:rgba(242,242,242,0.55);font-size:12px}
+    .links{display:flex;gap:14px;flex-wrap:wrap;margin-top:10px}
+  </style>
+</head>
+<body>
+
+  <div class="top">
+    <div class="wrap">
+      <a class="brand" href="index.html" aria-label="Back to NexusTri">
+        <img src="mark.png" alt="NexusTri mark">
+        <b>Nexus<span>Tri</span></b>
+      </a>
+    </div>
+  </div>
+
+  <main class="wrap">
+    <h1>Privacy Policy</h1>
+    <div class="meta">Last updated: <span id="d"></span></div>
+
+    <p>
+      This Privacy Policy explains how NexusTri (“we”, “us”, “our”) handles personal data when you visit this website.
+      We aim to collect the minimum information necessary to operate the site.
+    </p>
+
+    <h2>1) Data Controller</h2>
+    <div class="card">
+      <p><b>NexusTri</b></p>
+      <p>Contact: <a href="mailto:support@nexustri.com">support@nexustri.com</a></p>
+    </div>
+
+    <h2>2) What data we process</h2>
+    <ul>
+      <li><b>Necessary technical data</b> (e.g., basic logs) to keep the website secure and functioning.</li>
+      <li><b>Analytics data</b> (only if you consent) to understand aggregated usage and improve the website.</li>
+    </ul>
+
+    <h2>3) Purposes and legal basis</h2>
+    <ul>
+      <li><b>Website operation & security</b> — legitimate interests / necessary for service.</li>
+      <li><b>Analytics</b> — consent (only enabled after you choose “Accept” or enable Analytics in preferences).</li>
+    </ul>
+
+    <h2>4) Cookies</h2>
+    <p>
+      Details about cookies and how to manage them are available in our
+      <a href="cookies.html">Cookie Policy</a>.
+      You can change preferences anytime via “Cookie Settings” on the homepage footer.
+    </p>
+
+    <h2>5) Data sharing</h2>
+    <p>
+      We do not sell personal data. If analytics is enabled, data may be processed by the analytics provider
+      (e.g., Google Analytics) under your consent.
+    </p>
+
+    <h2>6) Data retention</h2>
+    <p>
+      Necessary technical data is retained only as long as required for security and operational purposes.
+      Analytics retention depends on the provider settings and is used in aggregated form.
+    </p>
+
+    <h2>7) Your rights</h2>
+    <p>
+      Depending on your location (e.g., EU/EEA), you may have rights to access, rectify, delete, restrict or object to processing,
+      and to withdraw consent at any time.
+    </p>
+
+    <h2>8) Contact</h2>
+    <p>
+      For privacy requests, contact: <a href="mailto:support@nexustri.com">support@nexustri.com</a>
+    </p>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      © <span id="y"></span> NexusTri
+      <div class="links">
+        <a href="index.html">Home</a>
+        <a href="cookies.html">Cookie Policy</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+    document.getElementById('d').textContent = new Date().toISOString().slice(0,10);
+  </script>
+</body>
+</html>
