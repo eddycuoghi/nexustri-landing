@@ -133,13 +133,15 @@
           <ul class="status-list" aria-labelledby="panel-label">
             <li>
               <a href="#nameproof">
-                <span><span class="name">NameProof</span><span class="desc">Brand-name validation</span></span>
+                <img class="status-logo" src="/assets/img/products/nameproof-icon.webp" width="32" height="32" alt="">
+                <span class="status-text"><span class="name">NameProof</span><span class="desc">Brand-name validation</span></span>
                 <span class="badge badge-live">Live</span>
               </a>
             </li>
             <li>
               <a href="#marginguides">
-                <span><span class="name">MarginGuides</span><span class="desc">Profitability decisions</span></span>
+                <img class="status-logo" src="/assets/img/products/marginguides-icon.webp" width="32" height="32" alt="">
+                <span class="status-text"><span class="name">MarginGuides</span><span class="desc">Profitability decisions</span></span>
                 <span class="badge badge-beta">Public Beta</span>
               </a>
             </li>
@@ -162,21 +164,26 @@
 
         <div class="product-grid">
           <article class="product-card" id="nameproof" aria-labelledby="nameproof-title">
-            <div class="product-top">
-              <h3 id="nameproof-title">NameProof</h3>
-              <span class="badge badge-live">Live</span>
+            <div class="product-head">
+              <img class="product-logo" src="/assets/img/products/nameproof-icon.webp" width="56" height="56" alt="NameProof logo" loading="lazy">
+              <div>
+                <div class="product-title-row">
+                  <h3 id="nameproof-title">NameProof</h3>
+                  <span class="badge badge-live">Live</span>
+                </div>
+                <p class="product-category">Brand-name validation</p>
+              </div>
             </div>
-            <p class="product-category">Brand-name validation and decision support</p>
+            <p class="product-tagline">Validate your business name before you build your brand.</p>
             <p class="product-desc">
-              Helps founders assess a business name before they build a brand around it,
-              with a clear recommendation and the evidence behind it.
+              A preliminary name assessment, then a Brand Decision Report with a clear recommendation
+              and the evidence behind it.
             </p>
-            <ul class="feature-list">
-              <li>Preliminary name assessment and a full Brand Decision Report</li>
-              <li>Domain and social-handle availability signals</li>
-              <li>SEO collision analysis</li>
-              <li>Preliminary trademark screening signals across USPTO, EUIPO, WIPO and UK Companies House / UKIPO</li>
-              <li>Pronunciation and linguistic review</li>
+            <ul class="capabilities" aria-label="What NameProof checks">
+              <li><span class="cap-title">Trademark screening</span><span class="cap-detail">USPTO · EUIPO · WIPO · UKIPO</span></li>
+              <li><span class="cap-title">Registry signals</span><span class="cap-detail">UK Companies House</span></li>
+              <li><span class="cap-title">Domains &amp; handles</span><span class="cap-detail">Availability signals</span></li>
+              <li><span class="cap-title">SEO &amp; linguistics</span><span class="cap-detail">Search collision, pronunciation</span></li>
             </ul>
             <div class="product-foot">
               <p class="product-note">Decision support only. Not legal advice.</p>
@@ -188,24 +195,29 @@
           </article>
 
           <article class="product-card" id="marginguides" aria-labelledby="marginguides-title">
-            <div class="product-top">
-              <h3 id="marginguides-title">MarginGuides</h3>
-              <span class="badge badge-beta">Public Beta</span>
+            <div class="product-head">
+              <img class="product-logo" src="/assets/img/products/marginguides-icon.webp" width="56" height="56" alt="MarginGuides logo" loading="lazy">
+              <div>
+                <div class="product-title-row">
+                  <h3 id="marginguides-title">MarginGuides</h3>
+                  <span class="badge badge-beta">Public Beta</span>
+                </div>
+                <p class="product-category">Profitability decisions</p>
+              </div>
             </div>
-            <p class="product-category">Profitability and margin decision support</p>
+            <p class="product-tagline">Know your real margin before you sell.</p>
             <p class="product-desc">
-              Helps sellers see the real margin of a deal before committing to it, turning real costs,
-              fees and a target margin into a clear profitability decision.
+              Turns real costs, fees and a target margin into a clear profitability decision,
+              before you commit to a deal.
             </p>
-            <ul class="feature-list">
-              <li>Real margin, real profit and the gap to a target margin</li>
-              <li>Break-even and target selling prices</li>
-              <li>Stress Test and Resilience views for adverse cost, fee and FX scenarios</li>
-              <li>Improve My Margin: what would need to change to reach the target</li>
-              <li>Free calculators for profit margin, break-even ROAS and landed cost</li>
+            <ul class="capabilities" aria-label="MarginGuides decision tools">
+              <li><span class="cap-title">Analyze</span><span class="cap-detail">Real margin and profit vs. target</span></li>
+              <li><span class="cap-title">Stress Test</span><span class="cap-detail">If a key assumption moves</span></li>
+              <li><span class="cap-title">Resilience</span><span class="cap-detail">Which shock hurts most</span></li>
+              <li><span class="cap-title">Improve My Margin</span><span class="cap-detail">What must change to reach target</span></li>
             </ul>
             <div class="product-foot">
-              <p class="product-note">Currently in Public Beta.</p>
+              <p class="product-note">Also offers free calculators for sellers and importers.</p>
               <a class="btn" href="https://marginguides.com" target="_blank" rel="noopener">
                 Visit marginguides.com<span class="visually-hidden"> (opens in a new tab)</span>
                 <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M5 11l6-6M6 5h5v5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -223,36 +235,44 @@
 
     <!-- APPROACH (anchor #philosophy kept for existing links) -->
     <section class="section" id="philosophy" aria-labelledby="approach-title">
-      <div class="container">
-        <div class="section-head">
+      <div class="container approach-grid">
+        <div class="approach-intro">
           <p class="eyebrow">Approach</p>
           <h2 id="approach-title">How we build</h2>
           <p class="section-intro">
-            Short. Direct. Serious. Our products are designed to make a decision clearer,
-            not to add more noise around it.
+            Our products are designed to make a decision clearer, not to add more noise around it.
           </p>
+          <p class="approach-motto">Short. Direct. Serious.</p>
         </div>
 
         <ol class="principles">
           <li class="principle">
             <span class="principle-num" aria-hidden="true">01</span>
-            <h3>Decision first</h3>
-            <p>Each product starts from a concrete decision and leads with a clear answer, followed by the evidence behind it.</p>
+            <div>
+              <h3>Decision first</h3>
+              <p>Each product starts from a concrete decision and leads with a clear answer, followed by the evidence behind it.</p>
+            </div>
           </li>
           <li class="principle">
             <span class="principle-num" aria-hidden="true">02</span>
-            <h3>AI where it helps</h3>
-            <p>We use AI where it improves analysis, and deterministic logic where results need to be exact and repeatable.</p>
+            <div>
+              <h3>AI where it helps</h3>
+              <p>We use AI where it improves analysis, and deterministic logic where results need to be exact and repeatable.</p>
+            </div>
           </li>
           <li class="principle">
             <span class="principle-num" aria-hidden="true">03</span>
-            <h3>Clear about limits</h3>
-            <p>Our tools support decisions. They do not replace professional legal, financial or tax advice, and we say so plainly.</p>
+            <div>
+              <h3>Clear about limits</h3>
+              <p>Our tools support decisions. They do not replace professional legal, financial or tax advice, and we say so plainly.</p>
+            </div>
           </li>
           <li class="principle">
             <span class="principle-num" aria-hidden="true">04</span>
-            <h3>Honest product status</h3>
-            <p>We label what is live and what is in beta, and describe only what our products do today.</p>
+            <div>
+              <h3>Honest product status</h3>
+              <p>We label what is live and what is in beta, and describe only what our products do today.</p>
+            </div>
           </li>
         </ol>
       </div>
