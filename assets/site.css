@@ -558,6 +558,7 @@ button { font: inherit; color: inherit; }
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: clamp(36px, 6vw, 88px);
+  row-gap: clamp(28px, 4vw, 40px);
   align-items: start;
 }
 .company-grid .section-intro + .section-intro { margin-top: 14px; }
@@ -586,6 +587,39 @@ button { font: inherit; color: inherit; }
 .facts dt { font-size: 0.9375rem; color: var(--text-3); }
 .facts dd { font-weight: 500; overflow-wrap: anywhere; }
 .facts a { color: var(--gold); text-underline-offset: 3px; }
+
+/* Official addresses (legal and postal purposes only) */
+.addresses {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+.address-card {
+  padding: 24px clamp(20px, 3vw, 32px);
+  border: 1px solid var(--line);
+  border-top: 1px solid var(--gold-line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+.address-card h3 {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.address-card address {
+  margin-top: 14px;
+  font-style: normal;
+  font-size: 1.0625rem;
+  font-weight: 500;
+  line-height: 1.6;
+  color: var(--text);
+}
+.address-purpose { margin-top: 12px; font-size: 0.9375rem; color: var(--text-2); }
+.address-note { grid-column: 1 / -1; font-size: 0.875rem; color: var(--text-3); }
+.address-note a { color: var(--gold); text-underline-offset: 3px; }
 
 /* ---------- Contact ---------- */
 .contact-panel {
@@ -784,6 +818,7 @@ button { font: inherit; color: inherit; }
   .company-grid { grid-template-columns: minmax(0, 1fr); }
   .approach-grid { grid-template-columns: minmax(0, 1fr); }
   .contact-panel { grid-template-columns: minmax(0, 1fr); }
+  .addresses { grid-template-columns: minmax(0, 1fr); }
 }
 
 @media (max-width: 600px) {
