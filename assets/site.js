@@ -4,6 +4,13 @@
 
   const doc = document;
 
+  // Sections that moved from the homepage to /company: keep old links such as /#company working.
+  const MOVED = { '#company': '/company#company-information', '#philosophy': '/company#approach' };
+  if ((window.location.pathname === '/' || window.location.pathname === '/index.html') && MOVED[window.location.hash]) {
+    window.location.replace(MOVED[window.location.hash]);
+    return;
+  }
+
   // Controls that only work with JavaScript are hidden in the HTML and revealed here.
   doc.querySelectorAll('[data-js-only]').forEach((el) => { el.hidden = false; });
 
@@ -148,7 +155,7 @@
   banner.hidden = true;
   banner.innerHTML = [
     '<p class="cc-title" id="cc-title">Cookies &amp; privacy</p>',
-    '<p class="cc-text">We use necessary storage to remember your choices. With your consent, we also use Google Analytics cookies to understand how the site is used in aggregate. You can change your choice at any time from “Cookie settings”. Read our <a href="/cookies.html">Cookie Policy</a>.</p>',
+    '<p class="cc-text">We use necessary storage to remember your choices. With your consent, we also use Google Analytics cookies to understand how the site is used in aggregate. You can change your choice at any time from “Cookie settings”. Read our <a href="/cookies">Cookie Policy</a>.</p>',
     '<div class="cc-prefs" id="cc-prefs" hidden>',
     '  <div class="cc-pref">',
     '    <div><p class="cc-pref-title" id="cc-necessary-title">Necessary</p>',

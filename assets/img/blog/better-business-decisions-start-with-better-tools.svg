@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <radialGradient id="g" cx="62%" cy="50%" r="55%"><stop offset="0" stop-color="#c9a33a" stop-opacity=".2"/><stop offset="1" stop-color="#c9a33a" stop-opacity="0"/></radialGradient>
+    <pattern id="p" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0v40" fill="none" stroke="#fff" stroke-opacity=".035"/></pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#0b0b0d"/><rect width="1200" height="630" fill="url(#p)"/><rect width="1200" height="630" fill="url(#g)"/>
+  <g fill="none" stroke-linecap="round">
+    <path d="M120 110C380 110 520 300 740 315" stroke="#fff" stroke-opacity=".22" stroke-width="2"/>
+    <path d="M120 210C380 210 520 305 740 315" stroke="#fff" stroke-opacity=".26" stroke-width="2"/>
+    <path d="M120 315H740" stroke="#fff" stroke-opacity=".32" stroke-width="2"/>
+    <path d="M120 420C380 420 520 325 740 315" stroke="#fff" stroke-opacity=".26" stroke-width="2"/>
+    <path d="M120 520C380 520 520 330 740 315" stroke="#fff" stroke-opacity=".22" stroke-width="2"/>
+    <path d="M740 315H1050" stroke="#c9a33a" stroke-width="6"/>
+    <path d="M1018 290l32 25-32 25" stroke="#c9a33a" stroke-width="6" stroke-linejoin="round"/>
+  </g>
+  <g fill="#fff" fill-opacity=".45"><circle cx="120" cy="110" r="7"/><circle cx="120" cy="210" r="7"/><circle cx="120" cy="315" r="7"/><circle cx="120" cy="420" r="7"/><circle cx="120" cy="520" r="7"/></g>
+  <circle cx="740" cy="315" r="46" fill="#0b0b0d" stroke="#c9a33a" stroke-width="4"/>
+  <circle cx="740" cy="315" r="18" fill="#c9a33a"/>
+</svg>
