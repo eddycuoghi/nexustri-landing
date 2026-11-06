@@ -1025,6 +1025,9 @@ button { font: inherit; color: inherit; }
 .aside-block h2 { font-size: 1.0625rem; letter-spacing: -0.01em; }
 .aside-block p { margin-top: 8px; font-size: 0.9375rem; color: var(--text-2); }
 .aside-block p a:not(.text-link) { color: var(--gold); text-underline-offset: 3px; }
+.email-list { display: grid; gap: 12px; margin: 12px 0 0; }
+.email-list dt { font-size: 0.8125rem; color: var(--text-3); }
+.email-list dd { margin: 2px 0 0; font-size: 0.9375rem; overflow-wrap: anywhere; }
 .aside-links { display: flex; flex-wrap: wrap; gap: 8px 24px; margin-top: 12px; padding: 0; list-style: none; font-size: 0.9375rem; }
 
 /* ---------- Articles ---------- */
@@ -1173,6 +1176,7 @@ button { font: inherit; color: inherit; }
   border-top: 1px solid var(--line);
 }
 .footer-address { text-align: right; }
+.footer-legal-form { white-space: nowrap; }
 .footer-address-label { display: block; font-weight: 600; color: var(--text-2); }
 
 .disclaimer { max-width: 100ch; margin-top: 20px; font-size: 0.8125rem; color: var(--text-3); }
@@ -1331,6 +1335,8 @@ button { font: inherit; color: inherit; }
 
 @media (max-width: 600px) {
   :root { --header-h: 64px; }
+  .footer-sep { display: none; }
+  .footer-legal-form { display: block; }
   .brand img { width: 36px; height: 36px; }
   .brand-name { font-size: 1.125rem; }
   .actions .btn, .cta-actions .btn { flex: 1 1 100%; }
