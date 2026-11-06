@@ -18,6 +18,48 @@
   const year = String(new Date().getFullYear());
   doc.querySelectorAll('[data-year]').forEach((el) => { el.textContent = year; });
 
+  /* ---------- Blog topic filter ----------
+     Progressive enhancement: without JavaScript every article is listed. The filter only uses
+     the URL fragment (#nameproof, #marginguides, #insights), so it creates no new indexable URLs. */
+  const filterBar = doc.querySelector('[data-blog-filter]');
+  if (filterBar) {
+    const rows = Array.from(doc.querySelectorAll('[data-category]'));
+    const buttons = Array.from(filterBar.querySelectorAll('[data-filter]'));
+    const descs = Array.from(doc.querySelectorAll('[data-topic-desc]'));
+    const status = doc.getElementById('filter-status');
+    buttons.forEach((btn) => {
+      const key = btn.getAttribute('data-filter');
+      const count = key === 'all' ? rows.length : rows.filter((r) => r.getAttribute('data-category') === key).length;
+      const badge = btn.querySelector('.filter-count');
+      if (badge) badge.textContent = String(count);
+    });
+    const applyFilter = (wanted, announce) => {
+      const active = buttons.find((b) => b.getAttribute('data-filter') === wanted) || buttons[0];
+      const key = active.getAttribute('data-filter');
+      let shown = 0;
+      rows.forEach((row) => {
+        const visible = key === 'all' || row.getAttribute('data-category') === key;
+        row.hidden = !visible;
+        if (visible) shown += 1;
+      });
+      buttons.forEach((b) => b.setAttribute('aria-pressed', String(b === active)));
+      descs.forEach((d) => { d.hidden = d.getAttribute('data-topic-desc') !== key; });
+      if (announce && status) {
+        const label = active.querySelector('.filter-label').textContent.trim();
+        status.textContent = 'Showing ' + shown + (shown === 1 ? ' article' : ' articles') + (key === 'all' ? '' : ': ' + label) + '.';
+      }
+      return key;
+    };
+    buttons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const key = applyFilter(btn.getAttribute('data-filter'), true);
+        window.history.replaceState(null, '', key === 'all' ? window.location.pathname : '#' + key);
+      });
+    });
+    applyFilter(window.location.hash.slice(1), false);
+    window.addEventListener('hashchange', () => applyFilter(window.location.hash.slice(1), true));
+  }
+
   /* ---------- Mobile navigation ---------- */
   const toggle = doc.querySelector('.nav-toggle');
   const nav = doc.getElementById('site-nav');

@@ -154,55 +154,49 @@
       </div>
     </section>
 
-    <section class="section section--flush" aria-labelledby="topics-title">
+    <section class="section section--flush" aria-labelledby="articles-title">
       <div class="container">
-        <h2 class="visually-hidden" id="topics-title">Topics</h2>
-        <ul class="topic-grid">
-          <li class="topic">
-            <p class="post-category"><span translate="no" class="notranslate">NameProof</span></p>
-            <p>Business naming, brand decisions, name validation and naming risks.</p>
-          </li>
-          <li class="topic">
-            <p class="post-category"><span translate="no" class="notranslate">MarginGuides</span></p>
-            <p>Profitability, commercial margins, pricing and business costs.</p>
-          </li>
-          <li class="topic">
-            <p class="post-category"><span translate="no" class="notranslate">NexusTri </span> Insights</p>
-            <p>Business software, practical technology and better decision-making.</p>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="section" aria-labelledby="articles-title">
-      <div class="container">
-        <h2 class="section-title-sm" id="articles-title">Latest articles</h2>
+        <h2 class="section-title-sm" id="articles-title">Articles</h2>
+        <div class="blog-filter" role="group" aria-label="Filter articles by topic" data-blog-filter data-js-only hidden>
+          <button type="button" class="filter-btn" data-filter="all" aria-pressed="true"><span class="filter-label">All articles</span> <span class="filter-count"></span></button>
+          <button type="button" class="filter-btn" data-filter="nameproof" aria-pressed="false"><span class="filter-label"><span translate="no" class="notranslate">NameProof</span></span> <span class="filter-count"></span></button>
+          <button type="button" class="filter-btn" data-filter="marginguides" aria-pressed="false"><span class="filter-label"><span translate="no" class="notranslate">MarginGuides</span></span> <span class="filter-count"></span></button>
+          <button type="button" class="filter-btn" data-filter="insights" aria-pressed="false"><span class="filter-label"><span translate="no" class="notranslate">NexusTri </span> Insights</span> <span class="filter-count"></span></button>
+        </div>
+        <p class="filter-desc" data-topic-desc="all">Articles cover three topics: <span translate="no" class="notranslate"> NameProof </span> for business naming and name validation, <span translate="no" class="notranslate"> MarginGuides </span> for profitability, margins and pricing, and <span translate="no" class="notranslate"> NexusTri </span> Insights for business software and better decision-making.</p>
+        <p class="filter-desc" data-topic-desc="nameproof" hidden>Business naming, brand decisions, name validation and naming risks.</p>
+        <p class="filter-desc" data-topic-desc="marginguides" hidden>Profitability, commercial margins, pricing and business costs.</p>
+        <p class="filter-desc" data-topic-desc="insights" hidden>Business software, practical technology and better decision-making.</p>
+        <p class="visually-hidden" id="filter-status" role="status"></p>
         <ul class="post-list">
-          <li class="post-row">
+          <li class="post-row" data-category="nameproof">
             <img class="post-cover" src="/assets/img/blog/choosing-a-business-name.svg" width="1200" height="630" alt="" loading="lazy">
             <div class="post-body">
               <p class="post-category"><span translate="no" class="notranslate">NameProof</span></p>
               <h3><a href="/blog/choosing-a-business-name">Choosing a Business Name: How to Decide Between Your Shortlist</a></h3>
               <p class="post-excerpt">A practical way to choose between your final business name candidates: what rules a name out, what is only a trade-off, and in what order to check.</p>
-              <p class="post-meta"><time datetime="2026-11-06">November 6, 2026</time> · 6 min read</p>
+              <p class="post-meta"><time datetime="2026-11-06">November 6, 2026</time> · 7 min read</p>
+              <p class="read-more" aria-hidden="true">Read article <span class="read-more-arrow">→</span></p>
             </div>
           </li>
-          <li class="post-row">
+          <li class="post-row" data-category="marginguides">
             <img class="post-cover" src="/assets/img/blog/why-your-profit-margin-may-be-lower-than-you-think.svg" width="1200" height="630" alt="" loading="lazy">
             <div class="post-body">
               <p class="post-category"><span translate="no" class="notranslate">MarginGuides</span></p>
               <h3><a href="/blog/why-your-profit-margin-may-be-lower-than-you-think">Why Your Profit Margin May Be Lower Than You Think</a></h3>
               <p class="post-excerpt">Six common measurement mistakes that make a profit margin look healthier than it is, with worked examples and the formulas to get a truer number.</p>
               <p class="post-meta"><time datetime="2026-11-06">November 6, 2026</time> · 5 min read</p>
+              <p class="read-more" aria-hidden="true">Read article <span class="read-more-arrow">→</span></p>
             </div>
           </li>
-          <li class="post-row">
+          <li class="post-row" data-category="insights">
             <img class="post-cover" src="/assets/img/blog/better-business-decisions-start-with-better-tools.svg" width="1200" height="630" alt="" loading="lazy">
             <div class="post-body">
               <p class="post-category"><span translate="no" class="notranslate">NexusTri </span> Insights</p>
               <h3><a href="/blog/better-business-decisions-start-with-better-tools">Better Business Decisions Start With Better Tools</a></h3>
               <p class="post-excerpt">What makes a business tool genuinely useful for decisions, where spreadsheets and AI fit, and a simple routine for checking a decision before you commit.</p>
               <p class="post-meta"><time datetime="2026-11-06">November 6, 2026</time> · 5 min read</p>
+              <p class="read-more" aria-hidden="true">Read article <span class="read-more-arrow">→</span></p>
             </div>
           </li>
         </ul>
@@ -218,7 +212,7 @@
             <img src="/assets/img/nexustri-emblem-96.webp" width="40" height="40" alt="" loading="lazy">
             <span class="brand-name">Nexus<span>Tri</span></span>
           </a>
-          <p><span translate="no" class="notranslate">NexusTri </span> builds practical software that helps entrepreneurs and businesses make better decisions.</p>
+          <p><span translate="no" class="notranslate">NexusTri </span> develops software and digital products designed to solve real problems for people and businesses.</p>
           <div class="footer-follow">
             <h2 class="footer-heading">Follow <span translate="no" class="notranslate"> NexusTri</span></h2>
             <ul class="social-links">
@@ -271,8 +265,8 @@
       </div>
 
       <p class="disclaimer">
-        <strong>Disclaimer:</strong> The information on this website is provided for general informational purposes only and does not constitute legal, financial, or investment advice.
-        Third-party trademarks and brand names remain the property of their respective owners.
+        Information on this website is general and is not legal, financial or investment advice.
+        Third-party trademarks belong to their respective owners.
       </p>
     </div>
   </footer>
