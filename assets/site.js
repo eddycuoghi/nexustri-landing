@@ -136,20 +136,35 @@
   /* ---------- Cookie consent ----------
      Analytics (Google Analytics 4) is loaded only after explicit consent.
      The choice is stored in localStorage under the same key and format used
-     since the site launched, so existing visitors keep their choice. */
+     since the site launched, so existing visitors keep their choice. It is
+     shared by every open tab of the website. */
   const CONSENT_KEY = 'nxtr_cookie_consent_v1';
   const CONSENT_VERSION = 1;
   const CONSENT_MAX_AGE_MS = 365 * 24 * 60 * 60 * 1000; // ask again after 12 months
   const GA_MEASUREMENT_ID = 'G-6Z7B0WJP2W';
 
+  // If storage is unavailable, the choice applies to this page view only.
+  let memoryConsent = null;
+  let useMemory = false;
+
+  const validConsent = (consent) => {
+    if (!consent || consent.version !== CONSENT_VERSION) return null;
+    if (typeof consent.timestamp === 'number' && Date.now() - consent.timestamp > CONSENT_MAX_AGE_MS) return null;
+    return consent;
+  };
+
   const readConsent = () => {
+    if (useMemory) return validConsent(memoryConsent);
+    let raw;
     try {
-      const raw = window.localStorage.getItem(CONSENT_KEY);
-      if (!raw) return null;
-      const consent = JSON.parse(raw);
-      if (!consent || consent.version !== CONSENT_VERSION) return null;
-      if (typeof consent.timestamp === 'number' && Date.now() - consent.timestamp > CONSENT_MAX_AGE_MS) return null;
-      return consent;
+      raw = window.localStorage.getItem(CONSENT_KEY);
+    } catch (err) {
+      useMemory = true;
+      return validConsent(memoryConsent);
+    }
+    if (!raw) return null;
+    try {
+      return validConsent(JSON.parse(raw));
     } catch (err) {
       return null;
     }
@@ -162,12 +177,123 @@
       analytics: !!analytics,
       timestamp: Date.now()
     };
+    memoryConsent = consent;
     try {
       window.localStorage.setItem(CONSENT_KEY, JSON.stringify(consent));
     } catch (err) {
-      // Storage unavailable (e.g. blocked): the choice applies to this page view only.
+      useMemory = true; // storage blocked or full: never let an older stored choice override this one
     }
     return consent;
+  };
+
+  const analyticsAllowed = () => {
+    const consent = readConsent();
+    return !!(consent && consent.analytics);
+  };
+
+  /* Analytics gate.
+     Withdrawing consent must stop Google Analytics at once: in this tab, in other open tabs and in
+     pages restored from the back/forward cache, including events the running tag has already queued.
+     The ga-disable flag, Consent Mode and removing the script do not achieve this on their own (queued
+     hits were observed being sent seconds after withdrawal), so every Analytics request and cookie
+     write is checked against the stored choice at the moment it happens and dropped without consent.
+     Installed just before the Google tag is loaded; pages without consent never load the tag. */
+  const GA_HOSTS = /(^|\.)(google-analytics\.com|analytics\.google\.com|googletagmanager\.com|doubleclick\.net)$/i;
+  const GA_COOKIE = /^_g(a|id)/; // _ga, _ga_<id>, _gat, _gac_*, _gid
+  let syncQueued = false;
+
+  const isAnalyticsUrl = (url) => {
+    try {
+      const u = new URL(String(url), window.location.href);
+      return GA_HOSTS.test(u.hostname) ||
+        (/(^|\.)google\.[a-z.]+$/i.test(u.hostname) && /^\/(g|ccm|pagead|measurement)\//.test(u.pathname));
+    } catch (err) {
+      return false;
+    }
+  };
+
+  const blocked = (url) => {
+    if (!isAnalyticsUrl(url) || analyticsAllowed()) return false;
+    if (!syncQueued) { // let the page catch up with a choice made elsewhere (or an expired one)
+      syncQueued = true;
+      window.setTimeout(() => { syncQueued = false; syncConsent(); }, 0);
+    }
+    return true;
+  };
+
+  let gateInstalled = false;
+  const installGate = () => {
+    if (gateInstalled) return;
+    gateInstalled = true;
+
+    const nav = window.navigator;
+    if (nav && typeof nav.sendBeacon === 'function') {
+      const sendBeacon = nav.sendBeacon;
+      nav.sendBeacon = function (url) {
+        return blocked(url) ? true : sendBeacon.apply(nav, arguments);
+      };
+    }
+
+    if (typeof window.fetch === 'function') {
+      const fetchFn = window.fetch;
+      window.fetch = function (input) {
+        const url = input && typeof input === 'object' && 'url' in input ? input.url : input;
+        if (blocked(url)) return Promise.resolve(new Response(null, { status: 204 }));
+        return fetchFn.apply(window, arguments);
+      };
+    }
+
+    const xhr = window.XMLHttpRequest && window.XMLHttpRequest.prototype;
+    if (xhr) {
+      const gaRequests = new WeakSet();
+      const open = xhr.open;
+      const send = xhr.send;
+      xhr.open = function (method, url) {
+        if (isAnalyticsUrl(url)) gaRequests.add(this);
+        else gaRequests.delete(this);
+        return open.apply(this, arguments);
+      };
+      xhr.send = function () {
+        if (gaRequests.has(this) && !analyticsAllowed()) return undefined;
+        return send.apply(this, arguments);
+      };
+    }
+
+    // Image pixels, scripts and frames pointing at Analytics endpoints.
+    const guardSrc = (proto) => {
+      const d = proto && Object.getOwnPropertyDescriptor(proto, 'src');
+      if (!d || !d.set || !d.configurable) return;
+      Object.defineProperty(proto, 'src', {
+        configurable: true,
+        enumerable: d.enumerable,
+        get: d.get,
+        set(value) { if (!blocked(value)) d.set.call(this, value); }
+      });
+    };
+    [window.HTMLImageElement, window.HTMLScriptElement, window.HTMLIFrameElement].forEach((C) => guardSrc(C && C.prototype));
+    const setAttr = Element.prototype.setAttribute;
+    Element.prototype.setAttribute = function (name, value) {
+      if (String(name).toLowerCase() === 'src' && /^(IMG|SCRIPT|IFRAME)$/.test(this.tagName) && blocked(value)) return undefined;
+      return setAttr.apply(this, arguments);
+    };
+
+    // Analytics cookies cannot be (re)created without consent; deleting them is always allowed.
+    const cookie = Object.getOwnPropertyDescriptor(Document.prototype, 'cookie');
+    if (cookie && cookie.set && cookie.configurable) {
+      Object.defineProperty(Document.prototype, 'cookie', {
+        configurable: true,
+        enumerable: cookie.enumerable,
+        get: cookie.get,
+        set(value) {
+          const text = String(value);
+          const eq = text.indexOf('=');
+          const name = (eq < 0 ? text : text.slice(0, eq)).trim();
+          const val = eq < 0 ? '' : text.slice(eq + 1).split(';')[0].trim();
+          if (GA_COOKIE.test(name) && val && !analyticsAllowed()) return;
+          cookie.set.call(this, value);
+        }
+      });
+    }
   };
 
   const loadAnalytics = () => {
@@ -178,6 +304,7 @@
       return;
     }
     window.__nxtrAnalyticsLoaded = true;
+    installGate();
 
     window.dataLayer = window.dataLayer || [];
     window.gtag = window.gtag || function gtag() { window.dataLayer.push(arguments); };
@@ -225,9 +352,22 @@
     removeAnalyticsCookies();
   };
 
+  // The state this page has applied: 'granted', 'denied' or null (no valid choice).
+  let applied;
+  const stateOf = (consent) => (consent ? (consent.analytics ? 'granted' : 'denied') : null);
+
+  let expiryTimer = null;
   const applyConsent = (consent) => {
-    if (consent && consent.analytics) loadAnalytics();
-    else disableAnalytics();
+    applied = stateOf(consent);
+    window.clearTimeout(expiryTimer);
+    if (applied === 'granted') {
+      loadAnalytics();
+      // Consent that expires while the page is open stops Analytics at that moment.
+      const left = typeof consent.timestamp === 'number' ? consent.timestamp + CONSENT_MAX_AGE_MS - Date.now() : Infinity;
+      if (left < 2147483647) expiryTimer = window.setTimeout(syncConsent, Math.max(0, left) + 50);
+    } else {
+      disableAnalytics();
+    }
   };
 
   // Build the consent panel once and place it early in the document so
@@ -318,7 +458,29 @@
     });
   });
 
+  // Follow a choice made, withdrawn, cleared or expired elsewhere (another tab, or while this page
+  // was in the background or the back/forward cache), and keep the visible controls consistent.
+  function syncConsent() {
+    const consent = readConsent();
+    if (stateOf(consent) === applied) return;
+    applyConsent(consent);
+    if (!consent) {
+      if (banner.hidden) openBanner(false, null);
+    } else if (!banner.hidden) {
+      if (prefs.hidden) closeBanner();
+      else analyticsToggle.checked = !!consent.analytics;
+    }
+  }
+
+  window.addEventListener('storage', (e) => {
+    if (e.key === CONSENT_KEY || e.key === null) syncConsent();
+  });
+  window.addEventListener('pageshow', (e) => { if (e.persisted) syncConsent(); });
+  window.addEventListener('focus', syncConsent);
+  doc.addEventListener('visibilitychange', () => { if (doc.visibilityState === 'visible') syncConsent(); });
+  doc.addEventListener('resume', syncConsent); // page unfrozen by the browser
+
   const existing = readConsent();
-  if (existing) applyConsent(existing);
-  else openBanner(false, null);
+  applyConsent(existing); // without a valid choice this also clears leftover Analytics cookies
+  if (!existing) openBanner(false, null);
 })();

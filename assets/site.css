@@ -249,6 +249,10 @@ button { font: inherit; color: inherit; }
 .brand img { width: 40px; height: 40px; }
 .brand-name { font-size: 1.25rem; font-weight: 600; letter-spacing: -0.02em; }
 .brand-name span { color: var(--gold); }
+/* Header logo about 12% larger than in the footer; the header height is unchanged. */
+.site-header .brand { gap: 13px; }
+.site-header .brand img { width: 45px; height: 45px; }
+.site-header .brand-name { font-size: 1.4rem; }
 
 .site-nav ul {
   display: flex;
@@ -352,6 +356,8 @@ button { font: inherit; color: inherit; }
   line-height: 1.07;
   letter-spacing: -0.035em;
 }
+/* Keep "real-world problems." together on its own line where it fits, instead of breaking at the hyphen. */
+.hero h1 .gold { display: inline-block; }
 
 .lead {
   max-width: 56ch;
@@ -1395,6 +1401,9 @@ button { font: inherit; color: inherit; }
   .footer-legal-form { display: block; }
   .brand img { width: 36px; height: 36px; }
   .brand-name { font-size: 1.125rem; }
+  .site-header .brand { gap: 11px; }
+  .site-header .brand img { width: 40px; height: 40px; }
+  .site-header .brand-name { font-size: 1.25rem; }
   .actions .btn, .cta-actions .btn { flex: 1 1 100%; }
   .stage-product { grid-template-columns: minmax(0, 1fr); gap: 12px; padding: 12px; }
   .stage-label { flex-direction: row; align-items: center; flex-wrap: wrap; gap: 10px; padding: 2px 4px 0; }

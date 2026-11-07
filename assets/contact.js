@@ -1,6 +1,9 @@
 /* NexusTri — contact form: accessible validation and submission to Netlify Forms.
-   Without JavaScript the form still works: the browser validates the required fields and
-   posts the form directly to Netlify, which shows /contact-sent after a successful submission. */
+   Without JavaScript the browser validates the required fields and posts the form directly;
+   Netlify Forms then shows /contact-sent. This only works once Netlify form detection is enabled
+   for the site and the form has been detected at deploy time.
+   A successful HTTP response means the server accepted the request. It is not, by itself, proof
+   that the submission was stored or that a notification was delivered: verify those in Netlify. */
 (() => {
   'use strict';
 
@@ -12,6 +15,7 @@
   const submit = form.querySelector('[type="submit"]');
   const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const SUPPORT = '<a href="mailto:support@nexustri.com"><span translate="no" class="notranslate">support@nexustri.com</span></a>';
+  const TIMEOUT_MS = 15000; // a request still pending after this is treated as failed
 
   const checks = {
     name: (v) => (v.trim() ? '' : 'Please enter your name.'),
@@ -80,20 +84,40 @@
     const label = submit.textContent;
     submit.textContent = 'Sending…';
 
+    const controller = typeof AbortController === 'function' ? new AbortController() : null;
+    let timedOut = false;
+    let timer = null;
+    const deadline = new Promise((resolve, reject) => {
+      timer = window.setTimeout(() => {
+        timedOut = true;
+        if (controller) controller.abort();
+        reject(new Error('timeout'));
+      }, TIMEOUT_MS);
+    });
+
     try {
       const body = new URLSearchParams(new FormData(form)).toString();
-      const res = await fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body,
-      });
+      const res = await Promise.race([
+        fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body,
+          signal: controller ? controller.signal : undefined,
+        }),
+        deadline,
+      ]);
+      window.clearTimeout(timer);
       if (!res.ok) throw new Error('HTTP ' + res.status);
-      // Only a successful response from the form handler leads to the confirmation page.
+      // The server accepted the submission (HTTP 2xx): show the confirmation page.
       window.location.assign(form.getAttribute('action') || '/contact-sent');
     } catch (err) {
+      window.clearTimeout(timer);
+      // The entered information stays in the form so it can be sent again.
       submit.disabled = false;
       submit.textContent = label;
-      showStatus(`<p><strong>Your message could not be sent.</strong> Please try again in a moment, or email us at ${SUPPORT}.</p>`);
+      showStatus(timedOut
+        ? `<p><strong>We could not confirm that your message was sent.</strong> The server took too long to respond. Your message is still in the form: please try again, or email us at ${SUPPORT}.</p>`
+        : `<p><strong>Your message could not be sent.</strong> Your message is still in the form: please try again in a moment, or email us at ${SUPPORT}.</p>`);
     }
   });
 
