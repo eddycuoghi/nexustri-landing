@@ -78,13 +78,13 @@
       window.setTimeout(() => {
         el.classList.remove('reveal', 'is-revealed');
         el.style.removeProperty('--reveal-delay');
-      }, delayMs + 750);
+      }, delayMs + 900);
     };
     observer = new IntersectionObserver((entries) => {
       let batch = 0;
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
-        reveal(entry.target, Math.min(batch, 3) * 90); // gentle stagger for items entering together
+        reveal(entry.target, Math.min(batch, 3) * 80); // gentle stagger for items entering together
         batch += 1;
       });
     }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
