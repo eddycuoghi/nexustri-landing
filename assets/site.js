@@ -60,6 +60,48 @@
     window.addEventListener('hashchange', () => applyFilter(window.location.hash.slice(1), true));
   }
 
+  /* ---------- Scroll reveal ----------
+     Sections marked data-reveal fade in once as they enter the viewport. Only elements that start
+     below the fold are ever hidden, and only when motion is welcome and IntersectionObserver exists:
+     without JavaScript, or with reduced motion, everything is simply visible. */
+  const revealTargets = Array.from(doc.querySelectorAll('[data-reveal]'));
+  const motionOK = typeof window.matchMedia === 'function' && window.matchMedia('(prefers-reduced-motion: no-preference)').matches;
+  if (revealTargets.length && motionOK && 'IntersectionObserver' in window) {
+    const pending = new Set();
+    let observer = null;
+    const reveal = (el, delayMs) => {
+      if (!pending.delete(el)) return;
+      observer.unobserve(el);
+      el.style.setProperty('--reveal-delay', delayMs + 'ms');
+      el.classList.add('is-revealed');
+      // Hand the element back to its normal styles (hover lift, etc.) once the transition is over.
+      window.setTimeout(() => {
+        el.classList.remove('reveal', 'is-revealed');
+        el.style.removeProperty('--reveal-delay');
+      }, delayMs + 750);
+    };
+    observer = new IntersectionObserver((entries) => {
+      let batch = 0;
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        reveal(entry.target, Math.min(batch, 3) * 90); // gentle stagger for items entering together
+        batch += 1;
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
+    const fold = window.innerHeight;
+    revealTargets.forEach((el) => {
+      if (el.getBoundingClientRect().top < fold) return; // never hide what is already on screen
+      el.classList.add('reveal');
+      pending.add(el);
+      observer.observe(el);
+    });
+    // Keyboard focus and printing must never meet hidden content.
+    doc.addEventListener('focusin', (e) => {
+      pending.forEach((el) => { if (el.contains(e.target)) reveal(el, 0); });
+    });
+    window.addEventListener('beforeprint', () => { pending.forEach((el) => reveal(el, 0)); });
+  }
+
   /* ---------- Mobile navigation ---------- */
   const toggle = doc.querySelector('.nav-toggle');
   const nav = doc.getElementById('site-nav');
