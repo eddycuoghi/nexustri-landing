@@ -398,14 +398,14 @@ button { font: inherit; color: inherit; }
 .stage-head {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 16px;
   font-size: 0.75rem;
   font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--text-3);
 }
-.stage-head img { width: 36px; height: 36px; }
+.stage-head img { width: 60px; height: 60px; filter: drop-shadow(0 6px 18px rgba(201, 163, 58, 0.22)); }
 .stage-products { display: grid; gap: 12px; margin-top: 18px; container-type: inline-size; }
 .stage-product {
   position: relative;
@@ -1408,6 +1408,8 @@ button { font: inherit; color: inherit; }
   .stage-product { grid-template-columns: minmax(0, 1fr); gap: 12px; padding: 12px; }
   .stage-label { flex-direction: row; align-items: center; flex-wrap: wrap; gap: 10px; padding: 2px 4px 0; }
   .stage-icon { width: 28px; height: 28px; }
+  .stage-head { gap: 14px; }
+  .stage-head img { width: 52px; height: 52px; }
   .stage-arrow { margin-left: auto; }
   .stage-frame { border-radius: 10px; }
   .situations, .philosophy-grid { grid-template-columns: minmax(0, 1fr); }
