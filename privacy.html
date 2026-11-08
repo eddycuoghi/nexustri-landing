@@ -1,122 +1,292 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Privacy Policy — NexusTri</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="icon" href="/favicon.ico">
+  <title>Privacy Policy — NexusTri</title>
+  <meta name="description" content="How NexusTri LLC handles personal data on nexustri.com, including hosting, the contact form, optional analytics, cookies and your choices.">
+
+  <!-- CANONICAL -->
+  <link rel="canonical" href="https://nexustri.com/privacy">
+
+  <meta name="theme-color" content="#070708">
+  <meta name="color-scheme" content="dark">
+
+  <!-- OPEN GRAPH -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="NexusTri">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:url" content="https://nexustri.com/privacy">
+  <meta property="og:title" content="Privacy Policy — NexusTri">
+  <meta property="og:description" content="How NexusTri LLC handles personal data on nexustri.com, including hosting, the contact form, optional analytics, cookies and your choices.">
+  <meta property="og:image" content="https://nexustri.com/assets/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="NexusTri logo">
+
+  <!-- TWITTER CARD -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@Nexustri_com">
+  <meta name="twitter:title" content="Privacy Policy — NexusTri">
+  <meta name="twitter:description" content="How NexusTri LLC handles personal data on nexustri.com, including hosting, the contact form, optional analytics, cookies and your choices.">
+  <meta name="twitter:image" content="https://nexustri.com/assets/img/og-image.jpg">
+  <meta name="twitter:image:alt" content="NexusTri logo">
+
+  <!-- FAVICON -->
+  <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-  <style>
-    :root{--bg:#070708;--bg2:#0b0b0d;--text:#f2f2f2;--muted:rgba(242,242,242,0.68);--gold:#C9A33A;--line:rgba(255,255,255,0.08);--radius:18px;--max:980px}
-    *{margin:0;padding:0;box-sizing:border-box}
-    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:linear-gradient(180deg,var(--bg),var(--bg2));color:var(--text);line-height:1.7}
-    a{color:inherit}
-    .wrap{max-width:var(--max);margin:0 auto;padding:0 22px}
-    .top{padding:34px 0;border-bottom:1px solid var(--line)}
-    .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
-    .brand img{width:28px;height:28px}
-    .brand b{letter-spacing:.4px}
-    .brand b span{color:var(--gold)}
-    main{padding:42px 0 70px}
-    h1{font-size:34px;letter-spacing:-.6px;margin-bottom:10px}
-    .meta{color:var(--muted);font-size:13px;margin-bottom:26px}
-    h2{font-size:18px;margin-top:26px;margin-bottom:10px}
-    p,li{color:rgba(242,242,242,0.78);font-size:14px}
-    ul{padding-left:18px;margin-top:8px}
-    .card{border:1px solid var(--line);border-radius:var(--radius);padding:18px;background:rgba(255,255,255,0.02);margin-top:18px}
-    footer{border-top:1px solid var(--line);padding:28px 0;color:rgba(242,242,242,0.55);font-size:12px}
-    .links{display:flex;gap:14px;flex-wrap:wrap;margin-top:10px}
-  </style>
+  <link rel="preload" href="/assets/fonts/inter-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/site.css">
+  <script>document.documentElement.classList.add('js');</script>
+  <script src="/assets/site.js" defer></script>
 </head>
+
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-  <div class="top">
-    <div class="wrap">
-      <a class="brand" href="index.html" aria-label="Back to NexusTri">
-        <img src="mark.png" alt="NexusTri mark">
-        <b>Nexus<span>Tri</span></b>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand notranslate" href="/" aria-label="NexusTri home" translate="no">
+        <img src="/assets/img/nexustri-emblem-96.webp" srcset="/assets/img/nexustri-emblem-96.webp 1x, /assets/img/nexustri-emblem-256.webp 2x" width="40" height="40" alt="">
+        <span class="brand-name">Nexus<span>Tri</span></span>
       </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span class="visually-hidden">Menu</span>
+        <svg class="icon-open" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M3 6h14M3 10h14M3 14h14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        <svg class="icon-close" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 5l10 10M15 5L5 15" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      </button>
+
+      <nav class="site-nav" id="site-nav" aria-label="Primary">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/#portfolio">Products</a></li>
+          <li><a href="/company">Company</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a class="nav-cta" href="/contact">Contact</a></li>
+        </ul>
+      </nav>
     </div>
-  </div>
+  </header>
 
-  <main class="wrap">
-    <h1>Privacy Policy</h1>
-    <div class="meta">Last updated: <span id="d"></span></div>
+  <main id="main" class="legal">
+    <div class="container">
+      <article class="legal-inner">
+        <h1>Privacy Policy</h1>
+        <p class="meta">Last updated: <time datetime="2026-11-08">November 8, 2026</time></p>
 
-    <p>
-      This Privacy Policy explains how NexusTri (“we”, “us”, “our”) handles personal data when you visit this website.
-      We aim to collect the minimum information necessary to operate the site.
-    </p>
+        <div class="intro">
+          <p>
+            This Privacy Policy explains how <span translate="no" class="notranslate"> NexusTri LLC </span> (“<span translate="no" class="notranslate">NexusTri</span>”, “we”, “us”, “our”) handles personal data
+            when you visit <span translate="no" class="notranslate"> nexustri.com </span> (the “website”) or contact us. We aim to collect only the information necessary to operate the website
+            and to reply to you.
+          </p>
+          <p>
+            This policy covers this website only. <span translate="no" class="notranslate"> NameProof </span> (<span translate="no" class="notranslate">nameproof.io</span>) and <span translate="no" class="notranslate"> MarginGuides </span> (<span translate="no" class="notranslate">marginguides.com</span>) each have their own
+            website and privacy information, which apply when you use those products. Other websites we link to, such as our profile on X,
+            are governed by their own privacy policies.
+          </p>
+        </div>
 
-    <h2>1) Data Controller</h2>
-    <div class="card">
-      <p><b>NexusTri</b></p>
-      <p>Contact: <a href="mailto:support@nexustri.com">support@nexustri.com</a></p>
+        <h2 id="controller">1. Who is responsible</h2>
+        <div class="callout">
+          <p><strong><span translate="no" class="notranslate">NexusTri LLC</span></strong>, a Wyoming limited liability company, United States.</p>
+          <p>Privacy matters: <a href="mailto:legal@nexustri.com"><span translate="no" class="notranslate">legal@nexustri.com</span></a></p>
+          <p>Corporate Mailing Address (for official corporate correspondence):<br>
+            <span class="postal notranslate" translate="no">400 Rella Blvd, #207-298, Montebello, NY 10901, United States</span></p>
+        </div>
+
+        <h2 id="data">2. What data we process</h2>
+        <ul>
+          <li>
+            <strong>Technical data.</strong> When you visit the website, our hosting provider (Netlify) processes technical data
+            such as your IP address, browser type, the pages requested and the date and time of the request.
+            This is needed to deliver the website and keep it secure.
+          </li>
+          <li>
+            <strong>Your cookie choice.</strong> Your consent choice is stored in your browser’s local storage on your device.
+            It is not sent to us.
+          </li>
+          <li>
+            <strong>Analytics data (only with your consent).</strong> If you accept analytics, Google Analytics collects information
+            about how the website is used, such as pages viewed, approximate location, device and browser type, and the referring website.
+            It can also record interactions such as scrolling to the end of a page or starting to fill in the contact form
+            (for example, a “form_start” event). The contents of the form fields are not sent to Google Analytics.
+            We use this information in aggregated form.
+          </li>
+          <li id="contact-form">
+            <strong>Contact form.</strong> If you use the contact form, we process your name, your email address, the subject you choose
+            and your message, in order to handle and reply to your inquiry. Submissions are received and stored through Netlify’s form
+            handling service (Netlify Forms), and we may also receive them by email notification. Netlify automatically checks submissions
+            for spam using the Akismet spam-filtering service. The form also contains a hidden anti-spam field that people do not see or
+            fill in; submissions that complete it are rejected automatically.
+            With each submission, Netlify also records the sender’s IP address, browser user agent and the address of the page from which
+            the form was sent.
+            Contacting us is optional. If you choose to use the contact form, your name, email address, subject and message are needed
+            so that we can understand and reply to your inquiry; without them the form cannot be sent. You can email us instead.
+          </li>
+          <li>
+            <strong>Messages you send us by email.</strong> If you email us, we process your email address and the content of your message
+            in order to reply.
+          </li>
+        </ul>
+        <p>
+          The website has no user accounts or payment features, and we do not ask you for sensitive data.
+          Please do not include sensitive personal information, payment details or passwords in your messages.
+        </p>
+
+        <h2 id="purposes">3. Purposes and legal bases</h2>
+        <p>Where the EU or UK General Data Protection Regulation (GDPR) applies, we rely on the following legal bases:</p>
+        <ul>
+          <li><strong>Operating and securing the website</strong>, including spam protection for the contact form — our legitimate interests in providing a working, secure website.</li>
+          <li><strong>Analytics</strong> — your consent, which you can withdraw at any time.</li>
+          <li><strong>Replying to your messages and contact form submissions</strong> — our legitimate interests in responding to inquiries, or steps taken at your request before entering into an agreement.</li>
+        </ul>
+
+        <h2 id="cookies">4. Cookies</h2>
+        <p>
+          Analytics cookies are only set after you consent. Details about the cookies and similar technologies we use are in our
+          <a href="/cookies">Cookie Policy</a>. You can change your choice at any time via “Cookie settings” in the footer of every page.
+        </p>
+
+        <h2 id="sharing">5. Service providers and data sharing</h2>
+        <p>We do not sell your personal data, and we do not use it for advertising. We share data only with providers that help us run the website:</p>
+        <ul>
+          <li><strong>Netlify</strong> — website hosting and delivery, and receipt, storage and spam filtering of contact form submissions. For spam filtering, Netlify uses Akismet, a service of Automattic.</li>
+          <li><strong>Google</strong> — Google Analytics, only if you consent. Advertising storage and ad personalization are kept disabled.</li>
+          <li><strong>Namecheap</strong> — our email hosting provider, to receive and answer messages sent to our <span translate="no" class="notranslate"> nexustri.com </span> addresses, including notifications of contact form submissions.</li>
+        </ul>
+        <p>We may also disclose information where required by law.</p>
+
+        <h2 id="transfers">6. International data transfers</h2>
+        <p>
+          <span translate="no" class="notranslate"> NexusTri LLC </span> is a United States company, and our service providers may process data in the United States and other countries
+          whose data protection laws may differ from those in your country.
+          Where the data protection law applicable to the processing requires specific safeguards for such transfers, you can ask us
+          which safeguards apply and request a copy of them by writing to <a href="mailto:legal@nexustri.com"><span translate="no" class="notranslate">legal@nexustri.com</span></a>.
+        </p>
+
+        <p>
+          Google LLC, Netlify, Inc. and Automattic Inc. (Akismet) are listed as active participants in the EU-U.S. Data Privacy Framework,
+          its UK Extension and the Swiss-U.S. Data Privacy Framework on the official list at
+          <a href="https://www.dataprivacyframework.gov/list">dataprivacyframework.gov</a> (checked on November 8, 2026).
+          Netlify’s data processing agreement, which forms part of its standard customer terms, provides for transfers under that framework
+          or, where the framework does not apply, under the European Commission’s Standard Contractual Clauses.
+          Namecheap’s Data Processing Addendum, which its terms of service apply to its Private Email service, includes the European
+          Commission’s Standard Contractual Clauses, and clauses for the United Kingdom, for transfers of personal data to countries
+          without an adequacy decision.
+        </p>
+
+        <h2 id="retention">7. Data retention</h2>
+        <ul>
+          <li><strong>Technical data</strong> is kept by our hosting provider only as long as needed for operation and security, according to its policies.</li>
+          <li><strong>Analytics data</strong> is kept according to the data retention setting of our Google Analytics property. For standard properties, Google Analytics keeps event-level data for at most 14 months; this setting does not apply to aggregated reports.</li>
+          <li><strong>Messages and contact form submissions</strong>, including copies held by Netlify and email notifications, are kept only as long as needed to handle your inquiry and any follow-up, and are then deleted, unless we need to keep them longer to comply with a legal obligation or to establish, exercise or defend legal claims.</li>
+          <li><strong>Your cookie choice</strong> stays in your browser until you change or clear it. We ask again after 12 months.</li>
+        </ul>
+
+        <h2 id="rights">8. Your rights</h2>
+        <p>
+          Depending on the data protection law applicable to the processing, you may have the right to access, correct or delete your personal data,
+          to restrict or object to its processing, to data portability, and to withdraw consent at any time without affecting processing carried out
+          before the withdrawal. Where the EU or UK GDPR applies, you may also lodge a complaint with a data protection supervisory authority,
+          in particular in the country where you live or work or where you believe an infringement took place.
+        </p>
+        <p>We do not make decisions about you based solely on automated processing that produce legal effects concerning you or similarly significantly affect you.</p>
+        <p>To exercise your rights, contact <a href="mailto:legal@nexustri.com"><span translate="no" class="notranslate">legal@nexustri.com</span></a>.</p>
+
+        <h2 id="security">9. Security</h2>
+        <p>
+          The website, including the contact form, is served only over encrypted HTTPS connections. We access contact form submissions
+          and our email only through password-protected accounts with our service providers. No method of transmission or storage is
+          completely secure, so we cannot guarantee absolute security.
+        </p>
+
+        <h2 id="children">10. Children</h2>
+        <p>This website is not directed at children under 16, and we do not knowingly collect their personal data.</p>
+
+        <h2 id="changes">11. Changes to this policy</h2>
+        <p>We may update this policy from time to time. The “Last updated” date at the top shows when it was last revised.</p>
+
+        <h2 id="contact">12. Contact</h2>
+        <p>
+          For privacy requests or questions, contact <a href="mailto:legal@nexustri.com"><span translate="no" class="notranslate">legal@nexustri.com</span></a>,
+          or use our <a href="/contact">contact page</a> and choose “Legal or privacy inquiry”.
+          For general questions, contact <a href="mailto:support@nexustri.com"><span translate="no" class="notranslate">support@nexustri.com</span></a>.
+        </p>
+      </article>
     </div>
-
-    <h2>2) What data we process</h2>
-    <ul>
-      <li><b>Necessary technical data</b> (e.g., basic logs) to keep the website secure and functioning.</li>
-      <li><b>Analytics data</b> (only if you consent) to understand aggregated usage and improve the website.</li>
-    </ul>
-
-    <h2>3) Purposes and legal basis</h2>
-    <ul>
-      <li><b>Website operation & security</b> — legitimate interests / necessary for service.</li>
-      <li><b>Analytics</b> — consent (only enabled after you choose “Accept” or enable Analytics in preferences).</li>
-    </ul>
-
-    <h2>4) Cookies</h2>
-    <p>
-      Details about cookies and how to manage them are available in our
-      <a href="cookies.html">Cookie Policy</a>.
-      You can change preferences anytime via “Cookie Settings” on the homepage footer.
-    </p>
-
-    <h2>5) Data sharing</h2>
-    <p>
-      We do not sell personal data. If analytics is enabled, data may be processed by the analytics provider
-      (e.g., Google Analytics) under your consent.
-    </p>
-
-    <h2>6) Data retention</h2>
-    <p>
-      Necessary technical data is retained only as long as required for security and operational purposes.
-      Analytics retention depends on the provider settings and is used in aggregated form.
-    </p>
-
-    <h2>7) Your rights</h2>
-    <p>
-      Depending on your location (e.g., EU/EEA), you may have rights to access, rectify, delete, restrict or object to processing,
-      and to withdraw consent at any time.
-    </p>
-
-    <h2>8) Contact</h2>
-    <p>
-      For privacy requests, contact: <a href="mailto:support@nexustri.com">support@nexustri.com</a>
-    </p>
   </main>
 
-  <footer>
-    <div class="wrap">
-      © <span id="y"></span> NexusTri
-      <div class="links">
-        <a href="index.html">Home</a>
-        <a href="cookies.html">Cookie Policy</a>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand notranslate" href="/" aria-label="NexusTri home" translate="no">
+            <img src="/assets/img/nexustri-emblem-96.webp" width="40" height="40" alt="" loading="lazy">
+            <span class="brand-name">Nexus<span>Tri</span></span>
+          </a>
+          <p><span translate="no" class="notranslate">NexusTri </span> develops software and digital products designed to solve real problems for people and businesses.</p>
+          <div class="footer-follow">
+            <h2 class="footer-heading">Follow <span translate="no" class="notranslate"> NexusTri</span></h2>
+            <ul class="social-links">
+              <li><a class="social-link" href="https://x.com/Nexustri_com" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path fill="currentColor" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg><span class="visually-hidden"><span translate="no" class="notranslate">NexusTri </span> on X (opens in a new tab)</span></a></li>
+            </ul>
+          </div>
+        </div>
+
+        <nav class="footer-col" aria-labelledby="footer-products">
+          <h2 class="footer-heading" id="footer-products">Products</h2>
+          <ul>
+            <li><a href="https://nameproof.io" target="_blank" rel="noopener"><span translate="no" class="notranslate">NameProof</span><span class="visually-hidden"> (opens in a new tab)</span></a></li>
+            <li><a href="https://marginguides.com" target="_blank" rel="noopener"><span translate="no" class="notranslate">MarginGuides</span><span class="visually-hidden"> (opens in a new tab)</span></a></li>
+          </ul>
+        </nav>
+
+        <nav class="footer-col" aria-labelledby="footer-company">
+          <h2 class="footer-heading" id="footer-company">Company</h2>
+          <ul>
+            <li><a href="/company">Company</a></li>
+            <li><a href="/company#approach">Approach</a></li>
+            <li><a href="/blog/">Blog</a></li>
+          </ul>
+        </nav>
+
+        <nav class="footer-col" aria-labelledby="footer-contact">
+          <h2 class="footer-heading" id="footer-contact">Contact</h2>
+          <ul>
+            <li><a href="/contact">Contact page</a></li>
+            <li><a href="mailto:support@nexustri.com"><span translate="no" class="notranslate">support@nexustri.com</span></a></li>
+            <li><a href="mailto:legal@nexustri.com"><span translate="no" class="notranslate">legal@nexustri.com</span></a></li>
+          </ul>
+        </nav>
+
+        <nav class="footer-col" aria-labelledby="footer-legal">
+          <h2 class="footer-heading" id="footer-legal">Legal</h2>
+          <ul>
+            <li><a href="/company#company-information">Company Information</a></li>
+            <li><a href="/privacy" aria-current="page">Privacy Policy</a></li>
+            <li><a href="/cookies">Cookie Policy</a></li>
+            <li data-js-only hidden><button type="button" class="linklike" data-cookie-settings>Cookie settings</button></li>
+          </ul>
+        </nav>
       </div>
+
+      <div class="footer-bottom">
+        <p>© <span data-year>2026</span> <span translate="no" class="notranslate"> NexusTri LLC</span><span class="footer-sep"> · </span><span class="footer-legal-form">A Wyoming Limited Liability Company</span></p>
+        <p class="footer-address"><span class="footer-address-label">Corporate Mailing Address:</span>
+          <span class="postal notranslate" translate="no">400 Rella Blvd, #207-298<br>Montebello, NY 10901, United States</span></p>
+      </div>
+
+      <p class="disclaimer">
+        Information on this website is general and is not legal, financial or investment advice.
+        Third-party trademarks belong to their respective owners.
+      </p>
     </div>
   </footer>
-
-  <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-    document.getElementById('d').textContent = new Date().toISOString().slice(0,10);
-  </script>
 </body>
 </html>

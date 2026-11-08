@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" font-family="Inter, 'Segoe UI', Roboto, Arial, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#15151a"/><stop offset="1" stop-color="#0d0d10"/></linearGradient>
+    <radialGradient id="glow" cx="62%" cy="40%" r="50%"><stop offset="0" stop-color="#c9a33a" stop-opacity=".16"/><stop offset="1" stop-color="#c9a33a" stop-opacity="0"/></radialGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0v40" fill="none" stroke="#fff" stroke-opacity=".04"/></pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+
+  <!-- Illustrative example: price 100; apparent margin counts only the purchase cost (60). -->
+  <g transform="translate(250 100)">
+    <text x="110" y="0" font-size="17" font-weight="600" letter-spacing="2" text-anchor="middle" fill="#a1a1aa">APPARENT MARGIN</text>
+    <!-- bar: 400 high = price 100 -->
+    <rect x="0" y="30" width="220" height="160" rx="10" fill="#c9a33a" fill-opacity=".35" stroke="#c9a33a" stroke-opacity=".7"/>
+    <text x="110" y="122" font-size="44" font-weight="700" text-anchor="middle" fill="#f4e7bf">40%</text>
+    <rect x="0" y="194" width="220" height="236" rx="10" fill="#2a2a31"/>
+    <text x="110" y="320" font-size="20" text-anchor="middle" fill="#d4d4d8">Purchase cost</text>
+  </g>
+
+  <g transform="translate(730 100)">
+    <text x="110" y="0" font-size="17" font-weight="600" letter-spacing="2" text-anchor="middle" fill="#d6b65a">REAL MARGIN</text>
+    <rect x="0" y="30" width="220" height="96" rx="10" fill="#c9a33a"/>
+    <text x="110" y="92" font-size="44" font-weight="700" text-anchor="middle" fill="#121214">24%</text>
+    <rect x="0" y="130" width="220" height="10" rx="3" fill="#f87171" fill-opacity=".75"/>
+    <rect x="0" y="144" width="220" height="18" rx="4" fill="#fbbf24" fill-opacity=".7"/>
+    <rect x="0" y="166" width="220" height="28" rx="5" fill="#94a3b8" fill-opacity=".7"/>
+    <rect x="0" y="198" width="220" height="232" rx="10" fill="#2a2a31"/>
+    <text x="110" y="320" font-size="20" text-anchor="middle" fill="#d4d4d8">Purchase cost</text>
+    <g font-size="18" fill="#d4d4d8">
+      <path d="M228 135h14v-20h10" fill="none" stroke="#f87171" stroke-width="2"/><text x="260" y="121">Returns</text>
+      <path d="M228 153h24" fill="none" stroke="#fbbf24" stroke-width="2"/><text x="260" y="159">Fees</text>
+      <path d="M228 180h14v18h10" fill="none" stroke="#94a3b8" stroke-width="2"/><text x="260" y="204">Shipping</text>
+    </g>
+  </g>
+
+  <!-- Same selling price -->
+  <path d="M230 530h740" stroke="#fff" stroke-opacity=".25" stroke-width="2"/>
+  <text x="600" y="570" font-size="18" text-anchor="middle" fill="#a1a1aa">Same product, same selling price</text>
+  <path d="M500 330h180" stroke="#c9a33a" stroke-width="3" stroke-dasharray="2 10" stroke-linecap="round"/>
+  <path d="M668 318l14 12-14 12" fill="none" stroke="#c9a33a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

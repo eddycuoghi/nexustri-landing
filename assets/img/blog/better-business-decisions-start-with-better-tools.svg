@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" font-family="Inter, 'Segoe UI', Roboto, Arial, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#15151a"/><stop offset="1" stop-color="#0d0d10"/></linearGradient>
+    <radialGradient id="glow" cx="66%" cy="50%" r="45%"><stop offset="0" stop-color="#c9a33a" stop-opacity=".18"/><stop offset="1" stop-color="#c9a33a" stop-opacity="0"/></radialGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0v40" fill="none" stroke="#fff" stroke-opacity=".04"/></pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+
+  <!-- Scattered information -->
+  <g font-size="19" fill="#d4d4d8">
+    <g transform="translate(110 110)">
+      <rect width="250" height="104" rx="16" fill="#1c1c22" stroke="#fff" stroke-opacity=".14"/>
+      <g stroke="#fff" stroke-opacity=".3"><path d="M24 30h56M24 52h56M24 74h56M52 22v62" fill="none"/></g>
+      <text x="100" y="48" font-weight="600" fill="#f4f4f5">Spreadsheet</text><text x="100" y="74" font-size="16" fill="#a1a1aa">Costs and fees</text>
+    </g>
+    <g transform="translate(110 262)">
+      <rect width="250" height="104" rx="16" fill="#1c1c22" stroke="#fff" stroke-opacity=".14"/>
+      <g stroke="#fff" stroke-opacity=".3" stroke-width="3" stroke-linecap="round"><path d="M28 34h46M28 52h46M28 70h30"/></g>
+      <text x="100" y="48" font-weight="600" fill="#f4f4f5">Quotes</text><text x="100" y="74" font-size="16" fill="#a1a1aa">Suppliers, rates</text>
+    </g>
+    <g transform="translate(110 414)">
+      <rect width="250" height="104" rx="16" fill="#1c1c22" stroke="#fff" stroke-opacity=".14"/>
+      <circle cx="50" cy="52" r="20" fill="none" stroke="#fff" stroke-opacity=".3" stroke-width="3"/><path d="M64 66l12 12" stroke="#fff" stroke-opacity=".3" stroke-width="3" stroke-linecap="round"/>
+      <text x="100" y="48" font-weight="600" fill="#f4f4f5">Registries</text><text x="100" y="74" font-size="16" fill="#a1a1aa">Names, marks</text>
+    </g>
+  </g>
+
+  <!-- Converging into one view -->
+  <g fill="none" stroke="#c9a33a" stroke-width="2.5" stroke-opacity=".7">
+    <path d="M360 162c90 0 110 153 200 153"/>
+    <path d="M360 314h200"/>
+    <path d="M360 466c90 0 110-151 200-151"/>
+  </g>
+  <circle cx="580" cy="315" r="34" fill="#c9a33a"/>
+  <path d="M566 315h26M582 303l12 12-12 12" fill="none" stroke="#121214" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M614 315h66" stroke="#c9a33a" stroke-width="3"/>
+
+  <!-- A decision, with its reasons -->
+  <g transform="translate(690 168)">
+    <rect width="400" height="294" rx="22" fill="#211d12" stroke="#c9a33a" stroke-width="2.5"/>
+    <text x="34" y="54" font-size="15" font-weight="600" letter-spacing="2" fill="#d6b65a">DECISION</text>
+    <circle cx="56" cy="110" r="22" fill="#4ade80" fill-opacity=".18"/><path d="M46 110l7 7 13-14" fill="none" stroke="#4ade80" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="94" y="119" font-size="30" font-weight="700" fill="#ffffff">Go ahead</text>
+    <path d="M34 156h332" stroke="#fff" stroke-opacity=".12"/>
+    <g font-size="18" fill="#ececef">
+      <text x="34" y="196">Margin above target</text>
+      <text x="34" y="230">Key risk checked</text>
+      <text x="34" y="264">Reasons recorded</text>
+    </g>
+  </g>
+</svg>
